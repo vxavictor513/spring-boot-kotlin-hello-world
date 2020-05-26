@@ -1,5 +1,6 @@
 package com.example.springbootkotlinhelloworld
 
+import org.springframework.beans.factory.annotation.Value
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 import org.springframework.web.bind.annotation.GetMapping
@@ -15,9 +16,12 @@ fun main(args: Array<String>) {
 @RestController
 class MyController {
 
+	@Value("\${hello.name}")
+	lateinit var name: String
+
 	@GetMapping("/")
 	fun helloWorld(): String {
-		return "Hello, World! from ${InetAddress.getLoopbackAddress().hostAddress}"
+		return "Hello, $name! from ${InetAddress.getLoopbackAddress().hostAddress}"
 	}
 
 }
