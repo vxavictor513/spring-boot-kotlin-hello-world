@@ -16,12 +16,14 @@ fun main(args: Array<String>) {
 @RestController
 class MyController {
 
-	@Value("\${hello.name}")
+	@Value("\${hello.name:World}")
 	lateinit var name: String
+	@Value("\${my.pod.ip:Undefined}")
+	lateinit var ip: String
 
 	@GetMapping("/")
 	fun helloWorld(): String {
-		return "Hello, $name! from ${InetAddress.getLoopbackAddress().hostAddress}"
+		return "Hello, $name! from $ip"
 	}
 
 }
