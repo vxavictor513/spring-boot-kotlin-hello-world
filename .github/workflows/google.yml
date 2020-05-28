@@ -28,6 +28,8 @@ env:
   REGISTRY_HOSTNAME: asia.gcr.io
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+  HARBOR_USERNAME: ${{ secrets.HARBOR_USERNAME }}
+  HARBOR_PASSWORD: ${{ secrets.HARBOR_PASSWORD }}
 
 jobs:
   setup-build-publish-deploy:
