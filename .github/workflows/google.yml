@@ -77,5 +77,5 @@ jobs:
     - name: Deploy
       run: |
         gcloud container clusters get-credentials $GKE_CLUSTER --zone $GKE_ZONE --project $GKE_PROJECT
-        helm upgrade -i demo library/sample
+        helm upgrade -i demo library/sample --set image.repository=asia.gcr.io/acn-ies-gcp/spring-boot-kotlin-hello-world,image.tag=0.0.1-SNAPSHOT,env[0].name=HELLO_NAME,env[0].value=SUCCESS,env[1].name=MY_POD_IP,env[1].valueFrom.fieldRef.fieldPath=status.podIP
         kubectl get services -o wide
