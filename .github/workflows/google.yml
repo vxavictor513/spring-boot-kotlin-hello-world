@@ -72,5 +72,5 @@ jobs:
     - name: Deploy
       run: |
         gcloud container clusters get-credentials $GKE_CLUSTER --zone $GKE_ZONE --project $GKE_PROJECT
-        helm upgrade -i demo library/spring-boot-kotlin-hello-world
+        helm upgrade -i demo library/sample
         kubectl get services -o wide
